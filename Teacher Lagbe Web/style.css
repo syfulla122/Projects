@@ -1,0 +1,201 @@
+/* Overall Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+/* Header */
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 25px;
+  font-size: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive Header for Mobile Devices */
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  nav {
+      margin-top: 10px;
+  }
+}
+
+/* Search Bar */
+.search-container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.search-container input {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-container button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  nav {
+      margin-top: 10px;
+  }
+
+  nav ul {
+      flex-direction: column;
+  }
+
+  nav li {
+      margin: 5px 0;
+  }
+
+  #teacherList {
+      flex-direction: column;
+      align-items: center;
+  }
+}
+
+/* Teacher List */
+.teacher-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.teacher-card {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.teacher-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.teacher-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.teacher-card p {
+  margin: 5px 0;
+}
+
+/* Form Container */
+.form-container {
+  margin: 20px auto;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 50%;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Input and Select Styles */
+.form-container input,
+.form-container select,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Customize the dropdown arrow in select */
+.form-container select {
+  appearance: none; /* Remove default dropdown arrow */
+  background-color: white;
+  background-size: 12px;
+  padding-right: 30px; /* Add padding to make space for custom arrow */
+}
+
+/* Button Styles */
+.form-container button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+.form-container button:hover {
+  background-color: #45a049;
+}
+
+.logout-btn {
+  background-color: #f00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}

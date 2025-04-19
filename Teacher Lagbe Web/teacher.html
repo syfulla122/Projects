@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Lagbe</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Modal Styling */
+        .modal {
+            display: none;  /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+        }
+
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            float: right;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Dropdown Notification Styling */
+        #notificationDropdown {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        #notificationDropdownContent {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            max-height: 300px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+            border: 1px solid black;
+            color: black;
+            overflow-y: auto; /* Make it scrollable if too many notifications */
+            right: 0;
+        }
+
+        #notificationDropdown:hover #notificationDropdownContent {
+            display: block;
+        }
+
+        #notificationDropdownContent li {
+            padding: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #notificationDropdownContent li:hover {
+            background-color: #ddd;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <h1>Teacher Lagbe</h1>
+    </div>
+    <nav>
+        <ul id="menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div id="teacherInfo">
+        <span id="teacherId"></span>
+        <button class="logout-btn" onclick="window.location.href='logout.php'">Logout</button>
+    </div>
+
+    <!-- Notification Section with Dropdown -->
+    <div id="notificationDropdown">
+        <h3>Notifications</h3>
+        <div id="notificationDropdownContent">
+            <ul id="notificationList">
+                <!-- Notifications will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div class="content">
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search for a Teacher by Name, Qualification, or Experience..." oninput="searchTeacher()">
+        <button onclick="searchTeacher()">Search</button>
+    </div>
+</div>
+
+
+    <div class="teacher-list" id="teacherList"></div>
+
+    <div class="form-container">
+        <h2>Add a Teacher</h2>
+        <form id="teacherForm" method="POST" action="add_teacher.php" enctype="multipart/form-data">
+            <input type="text" id="teacherIdInput" name="teacher_id" placeholder="Enter your Teacher ID..." required>
+            <input type="text" id="teacherName" name="teacher_name" placeholder="Enter teacher's full name..." required>
+            <input type="text" id="qualification" name="qualification" placeholder="Enter teacher's qualification..." required>
+            <input type="number" id="hourlyRate" name="hourly_rate" placeholder="Enter teacher's hourly rate..." required>
+            <input type="number" id="experience" name="experience" placeholder="Enter teacher's experience..." required>
+            <select name="subject" id="subject" required>
+                <option value="Bangla">Bangla</option>
+                <option value="English">English</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Science">Science</option>
+                <option value="Higher Mathematics">Higher Mathematics</option>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Biology">Biology</option>
+                <option value="Accounting">Accounting</option>
+                <option value="Economics">Economics</option>
+                <option value="Business Studies">Business Studies</option>
+                <option value="ICT">ICT</option>
+            </select>
+            <input type="text" id="class" name="class" placeholder="Enter teacher's class..." required>
+            <input type="file" id="teacherImage" name="teacher_image" accept="image/*">
+            <button type="submit">Add Teacher</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; Teacher Lagbe 2024</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    fetch('teacher.php') // Make sure the URL is correct
+     .then(response => {
+         if (!response.ok) {
+             console.error('Failed to fetch data:', response.statusText);
+             throw new Error('Network response was not ok');
+         }
+         return response.json();
+     })
+     .then(data => {
+         if (data.error) {
+             throw new Error(data.error);
+         }
+         document.getElementById('teacherId').textContent = 'Teacher ID: ' + data.teacherId;
+         document.getElementById('teacherInfo').style.display = 'block';
+ 
+         // Fetch notifications
+         fetchNotifications(data.teacherId);
+     })
+     .catch(error => {
+         console.error('Error:', error);
+         alert('An error occurred while fetching teachers. Please try again.');
+     });
+ 
+    // Function to fetch notifications
+    function fetchNotifications(teacherId) {
+        fetch('fetch_notifications.php?teacher_id=' + teacherId)
+            .then(response => response.json())
+            .then(data => {
+                const notificationList = document.getElementById('notificationList');
+                if (data.length === 0) {
+                    notificationList.innerHTML = '<li>No new notifications.</li>';
+                } else {
+                    notificationList.innerHTML = '';  // Clear existing notifications
+                    data.forEach(notification => {
+                        const li = document.createElement('li');
+                        li.textContent = notification.message;
+ 
+                        // Add an event listener to show detailed information when clicked
+                        li.addEventListener('click', function() {
+                            showNotificationDetails(notification);
+                        });
+ 
+                        notificationList.appendChild(li);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching notifications:', error);
+                alert('An error occurred while fetching notifications.');
+            });
+    }
+ 
+    // Show detailed notification when clicked
+    function showNotificationDetails(notification) {
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+        modal.innerHTML = `
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h3>Notification Details</h3>
+                <p><strong>Student Name:</strong> ${notification.student_name || 'N/A'}</p>
+                <p><strong>Student Phone:</strong> ${notification.student_phone || 'N/A'}</p>
+                <p><strong>Message:</strong> ${notification.message}</p>
+                <p><strong>Teacher Name:</strong> ${notification.teacher_name || 'N/A'}</p>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        modal.style.display = 'block';
+ 
+        // Close the modal
+        function closeModal() {
+            document.body.removeChild(modal);
+            markAsRead(notification.id);  // Mark notification as read after viewing
+        }
+    }
+ 
+    // Mark notification as read
+    function markAsRead(notificationId) {
+        fetch('mark_notification_as_read.php?notification_id=' + notificationId)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Notification marked as read:', data);
+            })
+            .catch(error => {
+                console.error('Error marking notification as read:', error);
+            });
+    }
+ </script>
+ 
+</body>
+</html>

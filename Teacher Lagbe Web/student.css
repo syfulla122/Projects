@@ -1,0 +1,45 @@
+.hire-teacher-form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    margin-bottom: 30px !important;
+}
+
+.hire-teacher-form h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.hire-teacher-form .form-group {
+    margin-bottom: 10px;
+}
+
+.hire-teacher-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.hire-teacher-form input[type="text"],
+.hire-teacher-form input[type="tel"],
+.hire-teacher-form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.hire-teacher-form button {
+    display: block;
+    margin: 10px auto 0;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}

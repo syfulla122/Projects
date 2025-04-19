@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Lagbe</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="student.css">
+</head>
+<body>
+  <header>
+    <h1>Teacher Lagbe</h1>
+    <nav>
+      <ul>
+        <li><a href="home.php">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="logout.php">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="content">
+    <div class="search-container">
+        <input type="text" id="searchBar"
+            placeholder="Search for a Teacher by Name, Qualification, or Experience...">
+        <button onclick="searchTeacher()">Search</button>
+    </div>
+  
+  <div class="teacher-list" id="teacherList">
+    </div>
+
+    <div class="container">
+      <div class="hire-teacher-form">
+        <h3>Hire a Teacher</h3>
+        <form id="hireTeacherForm" action="student.php" method="post">
+          <!-- Teacher ID Field -->
+          <label for="teacher_id">Teacher ID:</label>
+          <input type="text" name="teacher_id" id="teacher_id" placeholder="Enter Teacher ID" required>
+  
+          <!-- Teacher Name Field -->
+          <label for="teacher_name">Teacher Name:</label>
+          <input type="text" name="teacher_name" id="teacher_name" placeholder="Enter Teacher's Name" required>
+  
+          <!-- Student Name Field -->
+          <label for="student_name">Your Name:</label>
+          <input type="text" name="student_name" id="student_name" placeholder="Enter Your Name" required>
+  
+          <!-- Student Phone Field -->
+          <label for="student_phone">Your Phone Number:</label>
+          <input type="tel" name="student_phone" id="student_phone" placeholder="Enter Your Phone Number" required>
+  
+          <!-- Request Message Field -->
+          <label for="message">Subject Name:</label>
+          <textarea name="message" id="message" placeholder="Write your subject..." rows="4" required></textarea>
+  
+          <!-- Submit Button -->
+          <button type="submit">Hire Now</button>
+        </form>
+      </div>
+    </div>
+
+
+  <div id="notification" class="notification" style="display: none;">
+    <p id="notificationMessage"></p>
+  </div>
+
+  <script>
+    // Form Submission and Validation
+    const hireTeacherForm = document.getElementById('hireTeacherForm');
+    const notification = document.getElementById('notification');
+    const notificationMessage = document.getElementById('notificationMessage');
+
+    hireTeacherForm.addEventListener('submit', (event) => {
+      // Prevent default submission
+      event.preventDefault();
+
+      // Basic validation (additional checks can be added)
+      const teacherId = document.getElementById('teacher_id').value.trim();
+      const teacherName = document.getElementById('teacher_name').value.trim();
+      const studentName = document.getElementById('student_name').value.trim();
+      const studentPhone = document.getElementById('student_phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!teacherId || !teacherName || !studentName || !studentPhone || !message) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      // Show success notification (adjust as needed)
+      notificationMessage.textContent = 'Your request has been successfully submitted!';
+      notification.style.display = 'block';
+
+      // Optionally redirect or refresh the form
+      setTimeout(() => {
+        notification.style.display = 'none';
+        hireTeacherForm.submit(); // Perform the actual submission to PHP
+      }, 3000); // Hide notification after 3 seconds
+    });
+  </script>
+
+<footer>
+  <p>&copy; Teacher Lagbe 2024</p>
+</footer>
+
+  <script src="script.js"></script>
+  <script src="student.js"></script>
+</body>
+</html>

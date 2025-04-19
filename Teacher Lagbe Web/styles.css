@@ -1,0 +1,453 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #64c4aa;
+    padding: 20px 0;
+}
+
+.containerheader {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    margin-left: 20px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 7px;
+    transition: 0.3s;
+
+
+}
+
+nav a:hover {
+    text-decoration: none;
+    margin: 0 15px;
+    background-color: #333;
+    padding: 7px;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 7px;
+    transition: 0.3s;
+}
+
+
+
+
+
+/* Signup Button */
+.signup {
+    background-color: white;
+    color: #64c4aa;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+.signup a :hover {
+    background-color: #ffffff;
+    color: white;
+    
+}
+
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .containerheader {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    .signup {
+        margin-top: 10px;
+    }
+}
+
+/* Hero Section */
+.containerslide {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.slider {
+    flex: 1;
+    max-width: 50%;
+}
+
+.slider img {
+    max-width: 100%;
+    height: auto;
+    display: none;
+}
+
+.slider img:first-child {
+    display: block;
+}
+
+.text-content {
+    flex: 1;
+    text-align: left;
+    padding-left: 50px;
+}
+
+.text-content h1 {
+    font-size: 36px;
+}
+
+.text-content p {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+/* .signup-btn,
+.learn-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 15px;
+    text-decoration: none  !important;
+    color: white;
+    background-color: #28a745;
+    border-radius: 5px;
+    
+    font-size: 16px;
+} */
+
+.signup-btn,
+.learn-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 15px;
+    text-decoration: none  !important;
+    color: white;
+    background-color: #28a745;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+
+.signup-btn:hover,
+.learn-more-btn:hover {
+    color: #000000; /* Change to desired hover color for text */
+}
+
+
+
+.learn-more-btn {
+    background-color: #007bff;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .containerslide {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-content {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+
+    .slider {
+        max-width: 100%;
+    }
+}
+
+/* Categories Section */
+.categories {
+    background-color: #64c4aa;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.categories h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.categories .buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.categories .buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: white;
+    color: #64c4aa;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.categories .buttons button:hover {
+    background-color: #57b396;
+    color: white;
+}
+
+
+
+/*Top Teacher*/
+
+.cover {
+    position: relative;
+    padding: 0 30px;
+    margin-top: 60px;
+}
+
+/* Top Teacher Title Styling */
+.top-teacher-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.top-teacher-title h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+.left, .right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.scroll-images {
+    display: flex;
+    width: 100%;
+    padding: 40px 0;
+    margin-bottom: 40px;
+    overflow-x: auto;
+    overflow-y: hidden; /* Hide vertical scroll */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Hiding the scrollbar */
+.scroll-images::-webkit-scrollbar {
+    display: none; /* Hide scrollbar on Webkit (Chrome, Safari) */
+}
+
+.scroll-images {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 250px;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.child img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 10px;
+}
+
+.child h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+
+/* Footer */
+footer {
+    background-color: #64c4aa;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer a {
+    margin: 0 15px;
+    text-decoration: none !important;
+    color: black;
+}
+
+footer .logo {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Mobile Teacher Cards */
+@media (max-width: 768px) {
+    .teachers-container {
+        flex-wrap: wrap;
+    }
+
+    .teacher {
+        flex: 0 0 45%;
+        margin: 10px;
+    }
+
+    .slider-arrows {
+        top: 100%;
+        justify-content: space-around;
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* Auth Section for Login and Register Pages */
+.auth-section {
+    padding: 40px 0;
+    background-color: #ffffff;
+}
+
+.auth-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.auth-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #64c4aa;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-btn:hover {
+    background-color: #52ab91;
+}
+
+.auth-container p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-container p a {
+    color: #64c4aa;
+    text-decoration: underline;
+}
+
+.auth-container p a:hover {
+    color: #52ab91;
+}
+
+/* Mobile Responsive for Auth Pages */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .auth-container h2 {
+        font-size: 20px;
+    }
+
+    .auth-btn {
+        font-size: 14px;
+    }
+}

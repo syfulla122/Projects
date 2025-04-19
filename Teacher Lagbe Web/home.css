@@ -1,0 +1,295 @@
+/* Overall Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* Header */
+header {
+
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 25px;
+    font-size: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+
+}
+
+/* Responsive Header for Mobile Devices */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        /* Stack logo and nav on mobile */
+        align-items: center;
+        /* Center content vertically */
+    }
+
+    nav {
+        margin-top: 10px;
+        /* Add space between logo and nav on mobile */
+    }
+}
+
+/* Hero Section */
+.containerslide {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.slider {
+    flex: 1;
+    max-width: 50%;
+}
+
+.slider img {
+    max-width: 100%;
+    height: auto;
+    display: none;
+}
+
+.slider img:first-child {
+    display: block;
+}
+
+.text-content {
+    flex: 1;
+    text-align: left;
+    padding-left: 50px;
+}
+
+.text-content h1 {
+    font-size: 36px;
+}
+
+.text-content p {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+/* .signup-btn,
+.learn-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 15px;
+    text-decoration: none  !important;
+    color: white;
+    background-color: #28a745;
+    border-radius: 5px;
+    
+    font-size: 16px;
+} */
+
+.signup-btn,
+.learn-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 15px;
+    text-decoration: none !important;
+    color: white;
+    background-color: #28a745;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    /* Smooth transition for text color */
+}
+
+
+.signup-btn:hover,
+.learn-more-btn:hover {
+    color: #000000;
+    /* Change to desired hover color for text */
+}
+
+
+
+.learn-more-btn {
+    background-color: #007bff;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .containerslide {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-content {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+
+    .slider {
+        max-width: 100%;
+    }
+}
+
+/* Categories Section */
+.categories {
+    background-color: #64c4aa;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.categories h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.categories .buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.categories .buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: white;
+    color: #64c4aa;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.categories .buttons button:hover {
+    background-color: #57b396;
+    color: white;
+}
+
+
+/* Search Bar */
+.search-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.search-container input {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Teacher List */
+.teacher-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.teacher-card {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.teacher-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    /* Add rounded corners to images */
+}
+
+.teacher-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.teacher-card p {
+    margin: 5px 0;
+}
+
+/* Form Container */
+.form-container {
+    margin: 10px auto;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    /* Adjust width as needed */
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-container button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    /* Center the button */
+}
+
+
+
+
+/* Footer */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}

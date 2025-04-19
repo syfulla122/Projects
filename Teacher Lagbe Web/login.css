@@ -1,0 +1,103 @@
+/* Overall Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header */
+  header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Reset default display for improved mobile layout */
+  }
+  
+  nav li {
+    margin-right: 25px;
+    font-size: 20px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Responsive Header for Mobile Devices */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column; /* Stack logo and nav on mobile */
+      align-items: center; /* Center content vertically */
+    }
+  
+    nav {
+      margin-top: 10px; /* Add space between logo and nav on mobile */
+    }
+  }
+  
+  /* Container */
+  .container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center; /* Center login form */
+  }
+  
+  .container h2 {
+    margin-bottom: 20px;
+  }
+  
+  /* Login Form */
+  #loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #loginForm label {
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  #loginForm input[type="text"],
+  #loginForm input[type="password"] {
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  #loginForm button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }

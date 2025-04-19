@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/* Header */
+header {
+    background-color: #64c4aa;
+    padding: 20px 0;
+}
+
+.containerheader {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    margin-left: 20px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 7px;
+    transition: 0.3s;
+
+
+}
+
+nav a:hover {
+    text-decoration: none;
+    margin: 0 15px;
+    background-color: #333;
+    padding: 7px;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 7px;
+    transition: 0.3s;
+}
+
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.register-container {
+    max-width: 400px;
+    width: 100%;
+}
+
+.register-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input, form button, select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #00bfa5;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #64c4aa;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer a {
+    margin: 0 15px;
+    text-decoration: none !important;
+    color: black;
+}
+
+footer .logo {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
